@@ -42,7 +42,7 @@ function Answer() {
     }
 
     numRight = (a1+a2+a3+a4+a5+a6);
-    $('#feedback').html('right: ' + numRight + '/ 6');
+    $('#feedback').html('right: ' + numRight + ' / 6');
 
     if (numRight == 6) {
         $('#feedback').css('background-color', '#4EED5A');
