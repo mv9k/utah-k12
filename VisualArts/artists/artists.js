@@ -2,6 +2,13 @@
  * Created by kris on 11/20/15.
  */
 var correct=0;
+// checks for submit button click
+$('document').ready(function(){
+   $('#results').on('click', function(){
+       alert('hello');
+       checkAnswers();
+   })
+});
 // variables for radio button values
 $('input').change(function() {
         q1 = $('input:radio[name="q1"]:checked').val(),
