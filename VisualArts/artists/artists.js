@@ -23,7 +23,6 @@ function checkAnswers() {
     // For each question, if the answer is correct, display green styling on question, if wrong then show red styling and correct answer for question.
     // hig = hilight green, hir = hilight red
     if (q1 == 'a') {
-        alert('hello');
         $('#question1').addClass('hig');
         correct++;
     }
@@ -34,21 +33,21 @@ function checkAnswers() {
         $('#question2').addClass('hig');
         correct++;
     }
-    if (q2 != 'a') {
+    if (q2 != 'b') {
         $('#question2').addClass('hir');
     }
     if (q3 == 'c') {
         $('#question3').addClass('hig');
         correct++;
     }
-    if (q3 != 'a') {
+    if (q3 != 'c') {
         $('#question3').addClass('hir');
     }
     if (q4 == 'd') {
         $('#question4').addClass('hig');
         correct++;
     }
-    if (q4 != 'a') {
+    if (q4 != 'd') {
         $('#question4').addClass('hir');
     }
     if (q5 == 'a') {
@@ -62,9 +61,10 @@ function checkAnswers() {
         $('#question6').addClass('hig');
         correct++;
     }
-    if (q6 != 'a') {
+    if (q6 != 'b') {
         $('#question6').addClass('hir');
     }
+    $('.hig').css({'padding':'10px', 'border':'1px solid #00A2FC'});
     $('.displayAnswer').show();
     $('body').append('<div><h1>You answered ' + correct + ' correctly!</h1></div>')
 }
