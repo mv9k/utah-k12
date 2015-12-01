@@ -2,10 +2,71 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
 
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<style>
+    .correct {
+        background-color: darkseagreen;
+    }
+    .wrong {
+        background-color: orangered;
+    }
+    .speechAnswer {
+        margin: 10px;
+        font-size: large;
+    }
+    #textEntry {
+        margin: 10px;
+        font-size: large;
+    }
+    #submitBtn {
+        vertical-align: 30px;
+        padding: 8px;
+    }
+</style>
+<body>
+<textarea id="textEntry"></textarea>
+<button id="submitBtn">Submit</button>
+<div class="mainDiv"></div>
 </body>
 <script src="spelling.js"></script>
+
+<script>
+    var source, wordlist;
+
+    $("#submitBtn").click(function() {
+        source = $("#textEntry").val();
+        wordlist = new WordList(source);
+        $("#textEntry").val("");
+        PageSetup();
+    });
+
+    function PageSetup () {
+        $(".mainDiv").html("");
+        for (var i = 0; i < wordlist.words.length; i++) {
+            $(".mainDiv").append("<input class='speechAnswer' id='" + i + "'></input>");
+        }
+    }
+
+    $(".mainDiv").on("click", ".speechAnswer", function() {
+        var n = $(this).attr('id');
+        wordlist.get(n).say();
+    });
+
+    $('.mainDiv').on('change', '.speechAnswer', function() {
+        var n = $(this).attr('id');
+        var text = $(this).val();
+        if (wordlist.get(n).spelledRight(text)) {
+            $(this).removeClass("wrong");
+            $(this).addClass("correct");
+        }
+        else {
+            $(this).removeClass("correct");
+            $(this).addClass("wrong");
+        }
+    });
+</script>
+
 </html>
