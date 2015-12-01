@@ -5,7 +5,6 @@ var correct=0;
 // checks for submit button click
 $('document').ready(function(){
    $('#results').on('click', function(){
-       alert('hello');
        checkAnswers();
    })
 });
@@ -34,37 +33,38 @@ function checkAnswers() {
         $('#question2').addClass('hig');
         correct++;
     }
-    if (q2 != 'a') {
-        $('#question1').addClass('hir');
+    if (q2 != 'b') {
+        $('#question2').addClass('hir');
     }
     if (q3 == 'c') {
         $('#question3').addClass('hig');
         correct++;
     }
-    if (q3 != 'a') {
-        $('#question1').addClass('hir');
+    if (q3 != 'c') {
+        $('#question3').addClass('hir');
     }
     if (q4 == 'd') {
         $('#question4').addClass('hig');
         correct++;
     }
-    if (q4 != 'a') {
-        $('#question1').addClass('hir');
+    if (q4 != 'd') {
+        $('#question4').addClass('hir');
     }
     if (q5 == 'a') {
         $('#question5').addClass('hig');
         correct++;
     }
     if (q5 != 'a') {
-        $('#question1').addClass('hir');
+        $('#question5').addClass('hir');
     }
     if (q6 == 'b') {
         $('#question6').addClass('hig');
         correct++;
     }
-    if (q6 != 'a') {
-        $('#question1').addClass('hir');
+    if (q6 != 'b') {
+        $('#question6').addClass('hir');
     }
+    $('.hig').css({'padding':'10px', 'border':'1px solid #00A2FC'});
     $('.displayAnswer').show();
-    $('body').append('<div><h1>You answered ' + correct + 'correctly!</h1></div>')
+    $('body').append('<div><h1>You answered ' + correct + ' correctly!</h1></div>')
 }
